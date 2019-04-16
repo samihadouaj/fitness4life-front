@@ -1,0 +1,129 @@
+<app-header> </app-header>
+<div >
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+      <h3>Edit your informations</h3>
+      <form #f = "ngForm" (ngSubmit)="onSubmit(f)" >
+        <div class="form-content">
+          <div class="form-group">
+
+            <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="firstName"
+                   ngModel
+                   name ="firstName"
+                   placeholder="firstName"
+                   required>
+            </div>
+
+            <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="lastName"
+                   name="lastName"
+                   [ngModel]
+                   placeholder="lastName">
+            </div>
+
+            <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="username"
+                   name="username"
+                   ngModel
+                   placeholder="username">
+          </div>
+
+            <div class="form-group">
+            <input type="email"
+                   class="form-control input-underline input-lg"
+                   id="email"
+                   name="email"
+                   ngModel
+                   placeholder="email">
+              </div>
+
+            <div class="form-group">
+            <input type="number"
+                   class="form-control input-underline input-lg"
+                   id="age"
+                   name="age"
+                   ngModel
+                   placeholder="age">
+            </div>
+
+
+            <div class="form-group">
+
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="sex"
+                   name="sex"
+                   ngModel
+                   placeholder="sex">
+            </div>
+
+
+
+
+          <!--<div>-->
+          <!--<input type="password"-->
+          <!--class="form-control input-underline input-lg"-->
+          <!--id="passwordr" placeholder="Repeat Password">-->
+          <!--</div>-->
+
+
+            <div class="form-group">
+            <input type="number"
+                   class="form-control input-underline input-lg"
+                   id="current_weight"
+                   name = "current_weight"
+                   ngModel
+                   placeholder="current_weight">
+
+            </div>
+          <div class="form-group">
+            <input type="number"
+                   class="form-control input-underline input-lg"
+                   id="height"
+                   name = "height"
+                   ngModel
+                   placeholder="height">
+          </div>
+
+          <div class="form-group">
+            <input type="number"
+                   class="form-control input-underline input-lg"
+                   id="target_weight"
+                   name="target_weight"
+                   ngModel
+                   placeholder="target weight">
+          </div>
+
+          <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="activity_lvl"
+                   ngModel
+                   name="activity_lvl"
+                   placeholder="activity lvl">
+          </div>
+
+          <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="diet_pace"
+                   ngModel
+                   name="diet_pace"
+                   placeholder="diet pace">
+
+        <button class="btn rounded-btn" type="submit">Register</button>
+          </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

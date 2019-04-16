@@ -1,0 +1,34 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>Fitness4Life</h1>
+            <form #login="ngForm" (ngSubmit)="onLogin(login)">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text"
+                               class="form-control input-underline input-lg"
+                               id="username"
+                               name="username"
+                               ngModel
+                               placeholder="username">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password"
+                               name="password"
+                               ngModel
+                               class="form-control input-underline input-lg"
+                               id="password"
+                               placeholder="Password">
+                    </div>
+                </div>
+                <button class="btn rounded-btn" type="submit">Log in</button>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+
+              <div class="alert warning" *ngIf="error==true"> Verify Username or password</div>
+            </form>
+        </div>
+    </div>
+</div>
