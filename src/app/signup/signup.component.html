@@ -1,86 +1,142 @@
 <div class="login-page" [@routerTransition]>
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>SB Admin BS4 Angular7</h1>
-          <form #f ="ngForm" (ngSubmit)="onSubmit(f)"  >
-            <div class="form-content">
-                    <div class="form-group">
-                        <input type="text"
-                               class="form-control input-underline input-lg"
-                               id="firstName"
-                               ngModel
-                               name ="firstName"
-                               placeholder="firstName"
-                               required>
-                    </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-12">
+      <img class="user-avatar" src="../../assets/images/logo.png" width="150px" />
+      <h1>Be part of our huge family</h1>
+      <div class="row">
+        <form #f ="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="col-md-5 col">
+        <div class="form-content">
+          <div class="form-group">
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="firstName"
+                   ngModel
+                   name ="firstName"
+                   placeholder="firstName"
+                   required>
+          </div>
 
-                  <div>
-                    <input type="text"
-                           class="form-control input-underline input-lg"
-                           id="lastName"
-                           name="lastName"
-                           ngModel
-                           placeholder="lastName">
-                  </div>
+          <div>
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="lastName"
+                   name="lastName"
+                   ngModel
+                   placeholder="lastName">
+          </div>
 
-              <div>
-                <input type="text"
-                       class="form-control input-underline input-lg"
-                       id="username"
-                       name="username"
-                       ngModel
-                       placeholder="username">
-              </div>
+          <div>
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="username"
+                   name="username"
+                   ngModel
+                   placeholder="username">
+          </div>
 
-              <div>
-                <input type="email"
-                       class="form-control input-underline input-lg"
-                       id="email"
-                       name="email"
-                       ngModel
-                       placeholder="email">
-              </div>
-              <div>
-                <input type="number"
-                       class="form-control input-underline input-lg"
-                       id="age"
-                       name="age"
-                       ngModel
-                       placeholder="age">
-              </div>
+          <div>
+            <input type="email"
+                   class="form-control input-underline input-lg"
+                   id="email"
+                   name="email"
+                   ngModel
+                   placeholder="email">
+          </div>
+          <div>
+            <input type="number"
+                   class="form-control input-underline input-lg"
+                   id="age"
+                   name="age"
+                   ngModel
+                   placeholder="age">
+          </div>
 
-              <div>
-                <input type="text"
-                       class="form-control input-underline input-lg"
-                       id="sex"
-                       name="sex"
-                       ngModel
-                       placeholder="sex">
-              </div>
+          <div>
+            <input type="text"
+                   class="form-control input-underline input-lg"
+                   id="sex"
+                   name="sex"
+                   ngModel
+                   placeholder="sex">
+          </div>
 
-                    <div>
-                        <input type="password"
-                               class="form-control input-underline input-lg"
-                               id="password"
-                               name="password"
-                               ngModel
-                               placeholder="Password">
-                    </div>
+          <div>
+            <input type="password"
+                   class="form-control input-underline input-lg"
+                   id="password"
+                   name="password"
+                   ngModel
+                   placeholder="Password">
+          </div>
 
-                    <!--<div>-->
-                        <!--<input type="password"-->
-                               <!--class="form-control input-underline input-lg"-->
-                               <!--id="passwordr" placeholder="Repeat Password">-->
-                    <!--</div>-->
-              <div *ngIf="showError == true">
-                <span class="alert" >username or password already exists</span>
+          <!--<div>-->
+          <!--<input type="password"-->
+          <!--class="form-control input-underline input-lg"-->
+          <!--id="passwordr" placeholder="Repeat Password">-->
+          <!--</div>-->
+          <div *ngIf="showError == true">
+            <span class="alert" >username or password already exists</span>
 
-              </div>
-                </div>
-                <button type="submit" class="btn rounded-btn" >Continue</button>&nbsp;
-            </form>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-5">
+
+          <div class="form-content">
+            <div class="form-group">
+              <input type="number"
+                     class="form-control input-underline input-lg"
+                     id="current_weight"
+                     name = "current_weight"
+                     ngModel
+                     placeholder="current_weight">
+            </div>
+
+            <div class="form-group">
+              <input type="number"
+                     class="form-control input-underline input-lg"
+                     id="height"
+                     name = "height"
+                     ngModel
+                     placeholder="height">
+            </div>
+
+            <div class="form-group">
+              <input type="number"
+                     class="form-control input-underline input-lg"
+                     id="target_weight"
+                     name="target_weight"
+                     ngModel
+                     placeholder="target weight">
+            </div>
+
+            <div class="form-group">
+              <input type="text"
+                     class="form-control input-underline input-lg"
+                     id="activity_lvl"
+                     ngModel
+                     name="activity_lvl"
+                     placeholder="activity lvl">
+            </div>
+
+            <div class="form-group">
+              <input type="text"
+                     class="form-control input-underline input-lg"
+                     id="diet_pace"
+                     ngModel
+                     name="diet_pace"
+                     placeholder="diet pace">
+            </div>
+
+          </div>
+        </div>
+          <button class="btn rounded-btn" type="submit">Register</button>&nbsp;
+
+        </form>
         </div>
     </div>
+  </div>
 </div>
 

@@ -3,6 +3,7 @@ import { routerTransition } from '../router.animations';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SignupService} from './signup.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {CalculService} from '../shared/services/calcul.service';
 
 @Component({
     selector: 'app-signup',
@@ -13,35 +14,30 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class SignupComponent implements OnInit {
     constructor(private route: ActivatedRoute,
                 private  router: Router,
-    private signupService: SignupService) {}
+    private signupService: SignupService,
+                private calculService: CalculService) {}
     showError = false;
+  ERROR_MSG: string;
+  error = false;
     ngOnInit() {}
 
 
   onSubmit(f) {
-    console.log(f.value.firstName);
     console.log(f.value);
-    this.signupService.partomk.firsrt = 'gjhvkln,';
-    console.log(this.signupService.partomk);
-    (this.signupService.part1).firstName = f.value.firstName;
-    this.signupService.part1.firstName = f.value.firstName;
-    this.signupService.part1.lastName = f.value.lastName;
-    this.signupService.part1.username = f.value.username;
-    this.signupService.part1.age = f.value.age;
-    this.signupService.part1.email = f.value.email;
-    this.signupService.part1.password = f.value.password;
-    this.signupService.part1.sex = f.value.sex;
-    console.log('aaaaaaaaaaaaaaaa' + this.signupService.part1);
+    f.value.imc = this.calculService.calculIMC(f.value.weight, f.value.hight);
+    this.signupService.signup(f.value).subscribe((resp: HttpErrorResponse) => {
+        console.log(resp.error.error);
+      },
+      error1 => {
+        console.log(error1.error);
+        if (error1.error === 'Bad request') {
+          this.ERROR_MSG = 'enter a password and retry';
+        } else {
+          this.error = true;
+          this.ERROR_MSG = error1.error;
+        }
+      });
 
-    // this.signupService.check().subscribe((reponse: string) => {
-    //   const  rep = JSON.stringify(reponse);
-    //   console.log(rep);
-    //   if (rep === 'OK') {
-    //     this.router.navigate(['part2'], {relativeTo: this.route});
-    //   } else {
-    //     this.showError = true;
-    //   }
-    // });
-     this.router.navigate(['part2'], {relativeTo: this.route});
+     // this.router.navigate(['part2'], {relativeTo: this.route});
   }
 }

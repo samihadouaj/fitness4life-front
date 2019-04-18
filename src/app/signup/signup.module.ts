@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
-import { Part2Component } from './part2/part2.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -15,6 +14,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [SignupComponent, Part2Component]
+  declarations: [SignupComponent]
 })
 export class SignupModule { }
