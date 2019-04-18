@@ -13,22 +13,23 @@ export class DashboardComponent implements OnInit {
 
     constructor() {
         this.sliders.push(
+          {
+            imagePath: 'assets/images/slide55.jpg',
+            label: 'Ija nrodouk 3abd',
+            text: 'By Sami and the team'
+          },
             {
-                imagePath: 'assets/images/slider1.jpg',
-                label: 'First slide label',
+                imagePath: 'assets/images/slide44.jpeg',
+                label: 'time to change',
                 text:
-                    'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+                    'By Sami and the team'
             },
+
             {
-                imagePath: 'assets/images/slider2.jpg',
-                label: 'Ija nrodouk 3abd',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                imagePath: 'assets/images/slider3.jpg',
-                label: 'Third slide label',
+                imagePath: 'assets/images/slide33.jpeg',
+                label: 'your way  for a better life',
                 text:
-                    'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+                    'By Sami and the team'
             }
         );
 
