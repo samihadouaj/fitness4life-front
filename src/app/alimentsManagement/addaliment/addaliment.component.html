@@ -1,0 +1,33 @@
+
+<form class="form-wrapper">
+  <p align="left">
+<input type="text" #alimentName id="search" [(ngModel)]="str"  [ngModelOptions]="{standalone: true}" placeholder="Search for..." required>
+<button type="submit" value="go" id="submit" (click)="search(alimentName.value)">GO</button>
+  </p>
+
+
+
+
+<!-- we add table -->
+  <br>
+  <ul>
+
+    Aliment &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Calories &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; QT
+    <li> placeholder11    placeholder22 <input type="number"> <button type="button"> + </button>
+      <button type="button"> - </button></li>
+    <li> placeholder21 placeholder22<input type="number"> <button type="button"> + </button>
+      <button type="button"> - </button></li>
+<!--
+    <li *ngFor="let c of aliments">
+    {{
+      c.getName() + c.getCalories();
+      }}</li>
+-->
+  </ul>
+
+
+
+
+<br><br><br><br><br>
+<p align="center"> <button class ="button" name="submit" type="submit"> Confirm</button></p>
+</form>
