@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <h2 style="color: #7b0f00">Ey enti klit hetha lkol !!! </h2>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-10 col-offset-1">
+      <app-aliment-el
+        *ngFor="let al of AlimentstoAddToDayAss; let i = index"
+        [aliment]="al"
+      ></app-aliment-el>
+    </div>
+  </div>
+
+</div>

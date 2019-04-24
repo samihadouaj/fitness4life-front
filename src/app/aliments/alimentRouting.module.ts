@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {AlimentListComponent} from './aliment-list/aliment-list.component';
+import {WrapComponent} from './wrap/wrap.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: AlimentListComponent
+    component: WrapComponent
   }
 ];
 

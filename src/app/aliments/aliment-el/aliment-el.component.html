@@ -7,8 +7,14 @@
     <p class="list-group-item-text">{{ aliment.cals }} Kcal</p>
   </div>
   <span class="pull-right">
-       <label for="qty">quantity</label> <input [value]="aliment.qty"  id="qty" type="number" style="width: 50px">
-            &nbsp;&nbsp;&nbsp;&nbsp;<button class ="btn btn-info">+</button>
+       <label for="qty">quantity</label>
+       <input
+
+               id="qty" type="number"
+               style="width: 50px"
+                [(ngModel)] = "qty"
+       >
+            &nbsp;&nbsp;&nbsp;<button class ="btn btn-info" (click)="add()">+</button>
 
       </span>
 
