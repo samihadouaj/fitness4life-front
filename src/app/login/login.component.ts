@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
        localStorage.setItem('token', token);
        console.log(localStorage.getItem('token'));
        this.userService.currentUser = await this.userService.getUserInfo();
+       localStorage.setItem('uid' , this.userService.currentUser.id);
     }
 
 

@@ -9,15 +9,19 @@ import {DayAssesmentService} from '../dayAssesment.service';
 export class AlimentElComponent implements OnInit {
   @Input() aliment;
  // @Input() index: number;
-  qty: number;
+  quantity: number;
+  private numberOfCalsForThisItem: number;
   constructor(private dayAssesmentService: DayAssesmentService) { }
 
   ngOnInit() {
-    this.qty = this.aliment.qty;
-    console.log(this.qty);
+    this.quantity = this.aliment.qty;
+    console.log(this.quantity);
   }
 
   add() {
-    this.dayAssesmentService.AlimentstoAddToDayAss.push(this.aliment);
+    this.numberOfCalsForThisItem = (this.aliment.cals * this.quantity) / this.aliment.qty;
+    this.dayAssesmentService.AlimentstoAddToDayAss.push({al: this.aliment, qty: this.quantity});
+
+    this.dayAssesmentService.CalsIn += this.numberOfCalsForThisItem;
   }
 }

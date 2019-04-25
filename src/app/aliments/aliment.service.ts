@@ -38,4 +38,14 @@ export class AlimentService {
     console.log(headers);
     return this.http.get(this.base_url + '/Aliment/get', {headers: headers}).toPromise();
   }
+
+  getAlimentById(alimentId) { // get all aliments in the db
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    console.log(headers);
+    return this.http.get(this.base_url + '/Aliment/' + alimentId, {headers: headers}).toPromise();
+  }
+
 }

@@ -4,16 +4,20 @@
   class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ aliment.name }}</h4>
-    <p class="list-group-item-text">{{ aliment.cals }} Kcal</p>
+    <p class="list-group-item-text">{{(this.aliment.cals * this.quantity) / this.aliment.qty}} Kcal</p>
   </div>
   <span class="pull-right">
        <label for="qty">quantity</label>
        <input
-
+               [(ngModel)] = "quantity"
                id="qty" type="number"
                style="width: 50px"
-                [(ngModel)] = "quantity"
-       >
-           <button class ="btn btn-info" (click)="add()">+</button>
+               disabled
+               >
+<!--              [(ngModel)] = "quantity"-->
+
+           <button class ="btn btn-warning" (click)="deleteAl()">-</button>
+
       </span>
+
 </a>

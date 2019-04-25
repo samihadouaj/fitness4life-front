@@ -8,13 +8,35 @@ import {DayAssesmentService} from '../dayAssesment.service';
 })
 export class ConsumedAlimentsComponent implements OnInit {
   AlimentstoAddToDayAss: Object = [];
+  CalsIn: number;
   constructor(
     private dayAssesmentService: DayAssesmentService
   ) { }
-  ngOnInit() {
+
+  async ngOnInit() {
+    this.dayAssesmentService.dayAssesment = await this.dayAssesmentService.getDayAssesmet();
+    this.dayAssesmentService.ArrayOfMekla = this.dayAssesmentService.dayAssesment.mekla;
+    console.log(this.dayAssesmentService.ArrayOfMekla);
+
+
+    this.dayAssesmentService.createInvArrayOfMekla();
     this.AlimentstoAddToDayAss = this.dayAssesmentService.AlimentstoAddToDayAss;
+    this.CalsIn = this.dayAssesmentService.CalsIn;
+    console.log(this.CalsIn);
+    console.log(localStorage.getItem('uid'));
   }
 
+  createMeklaArray() {
+    this.dayAssesmentService.createArrayOfMekla();
+    console.log(this.dayAssesmentService.ArrayOfMekla);
+  }
 
-
+ submit() {
+    this.dayAssesmentService.ArrayOfMekla = [];
+   this.dayAssesmentService.createArrayOfMekla();
+   console.log(this.dayAssesmentService.ArrayOfMekla);
+     this.dayAssesmentService.submitMekla().subscribe((res) =>  {
+       console.log(res);
+     });
+}
 }

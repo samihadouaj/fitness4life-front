@@ -8,9 +8,10 @@ import {AlimentRoutingModule} from './alimentRouting.module';
 import {DayAssesmentService} from './dayAssesment.service';
 import {ConsumedAlimentsComponent} from './consumed-aliments/consumed-aliments.component';
 import {WrapComponent} from './wrap/wrap.component';
+import {ConsalimentElComponent} from './consaliment-el/consaliment-el.component';
 
 @NgModule({
-  declarations: [AlimentElComponent, AlimentListComponent, ConsumedAlimentsComponent, WrapComponent],
+  declarations: [AlimentElComponent, AlimentListComponent, ConsumedAlimentsComponent, WrapComponent, ConsalimentElComponent],
   imports: [
     CommonModule,
     FormsModule,
