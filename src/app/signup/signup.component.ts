@@ -24,7 +24,8 @@ export class SignupComponent implements OnInit {
 
   onSubmit(f) {
     console.log(f.value);
-    f.value.imc = this.calculService.calculIMC(f.value.weight, f.value.hight);
+    // tslint:disable-next-line:max-line-length
+    f.value.imc = this.calculService.calculIMC(f.value.weight, f.value.height, f.value.age, f.value.sex, f.value.activity_lvl, f.value.target_weight);
     this.signupService.signup(f.value).subscribe((resp: HttpErrorResponse) => {
         console.log(resp.error.error);
       },

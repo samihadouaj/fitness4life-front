@@ -1,0 +1,23 @@
+<a
+  style="cursor: pointer;"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ workout.name }}</h4>
+    <p class="list-group-item-text">{{this.workout.kcal * this.duration}} Kcal</p>
+  </div>
+  <span class="pull-right">
+       <label for="qty">quantity</label>
+       <input
+         [(ngModel)] = "duration"
+         id="qty" type="number"
+         style="width: 50px"
+         disabled
+       >
+
+           <button class ="btn btn-warning" (click)="deletewk()">-</button>
+
+      </span>
+
+</a>
+

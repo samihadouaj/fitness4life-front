@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
     { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },
     { path: 'aliments', loadChildren: './aliments/aliments-module.module#AlimentsModuleModule' },
+    {path: 'workouts', loadChildren: './workout/workout.module#WorkoutModule' },
    { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
     { path: '**', redirectTo: 'not-found' }
 ];

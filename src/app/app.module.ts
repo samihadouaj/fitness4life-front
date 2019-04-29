@@ -12,7 +12,7 @@ import {LoginService} from './login/login.service';
 import {CalculService} from './shared/services/calcul.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {UserService} from './user/user.service';
-import { WrapComponent } from './aliments/wrap/wrap.component';
+
 
 @NgModule({
     imports: [

@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <h2 style="color: #7b0f00">Your DONE/TODO workouts </h2>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-10 col-offset-1">
+      <app-done-workout
+        *ngFor="let al of WorkoutstoAddToDayAss; let i = index"
+        [workout]="al.wk"
+        [duration]="al.duration"
+        [index] = i
+      ></app-done-workout>
+    </div>
+  </div>
+  {{CalsIn}}
+  <button (click)="submit()" class="btn btn-success">Submit</button>
+</div>
+
