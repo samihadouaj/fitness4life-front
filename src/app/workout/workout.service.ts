@@ -46,7 +46,7 @@ export class WorkoutService {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     });
     console.log(headers);
-    return this.http.get(this.base_url + '/Aliment/' + WorkoutId, {headers: headers}).toPromise();
+    return this.http.get(this.base_url + '/workout/' + WorkoutId, {headers: headers}).toPromise();
   }
 
 }

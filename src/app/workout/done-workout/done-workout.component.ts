@@ -18,12 +18,10 @@ export class DoneWorkoutComponent implements OnInit {
 
   async ngOnInit() {
     this.dayAssesmentService.dayAssesment = await this.dayAssesmentService.getDayAssesmet();
-    this.dayAssesmentService.ArrayOfMekla = this.dayAssesmentService.dayAssesment.mekla;
-    console.log(this.dayAssesmentService.ArrayOfMekla);
-
-
+    this.dayAssesmentService.ArrayOfWorkouts = this.dayAssesmentService.dayAssesment.activities;
+    console.log(this.dayAssesmentService.ArrayOfWorkouts);
     this.dayAssesmentService.createInvArrayOfWorkouts();
-    this.WorkoutstoAddToDayAss = this.dayAssesmentService.AlimentstoAddToDayAss;
+    this.WorkoutstoAddToDayAss = this.dayAssesmentService.WorkoutstoAddToDayAss;
     this.CalsIn = this.dayAssesmentService.CalsIn;
     console.log(this.CalsIn);
     console.log(localStorage.getItem('uid'));

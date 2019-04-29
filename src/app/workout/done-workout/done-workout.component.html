@@ -4,12 +4,12 @@
   <hr>
   <div class="row">
     <div class="col-md-10 col-offset-1">
-      <app-done-workout
+      <app-workout-todo
         *ngFor="let al of WorkoutstoAddToDayAss; let i = index"
         [workout]="al.wk"
         [duration]="al.duration"
         [index] = i
-      ></app-done-workout>
+      ></app-workout-todo>
     </div>
   </div>
   {{CalsIn}}

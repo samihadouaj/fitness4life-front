@@ -39,6 +39,7 @@ export class WorkoutListComponent implements OnInit {
     }
     console.log(this.str);
     console.log(reg);
+
     this.result = await  this.workoutService.searchbyReg(reg);
     this.allworkouts = this.result;
   }

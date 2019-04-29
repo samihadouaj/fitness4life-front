@@ -2,15 +2,15 @@
   <h2 style="color: #7b0f00">Select Workouts! </h2>
   <p align="left">
     <input type="text"
-           #alimentName
+           #workoutn
            id="search"
            [(ngModel)]="str"
            [ngModelOptions]="{standalone: true}"
            placeholder="Search for..."
            required
-           (keyup)="searchByReg(alimentName.value)"
+           (keyup)="searchByReg(workoutn)"
     >
-    <button type="submit" value="go" id="submit" (click)="search(alimentName.value)">GO</button>
+    <button type="submit" value="go" id="submit" (click)="search(workoutn)">GO</button>
   </p>
   <hr>
   <div class="row">

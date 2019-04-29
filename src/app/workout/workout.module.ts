@@ -7,10 +7,12 @@ import {WrapworkoutComponent} from './wrapWorkout/wrapworkout.component';
 import {WorkoutListComponent} from './workout-list/workout-list.component';
 import {WorkoutRoutingModule} from './workout-routing.module';
 import {FormsModule} from '@angular/forms';
+import {DayAssesmentService} from '../aliments/dayAssesment.service';
 
 
 @NgModule({
   declarations: [WorkoutElComponent, DoneWorkoutComponent, WorkoutTodoComponent, WrapworkoutComponent, WorkoutListComponent],
+  providers : [DayAssesmentService],
   imports: [
     CommonModule,
     WorkoutRoutingModule,
