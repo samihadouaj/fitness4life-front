@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {WrapComponent} from '../aliments/wrap/wrap.component';
+import {WrapworkoutComponent} from './wrapWorkout/wrapworkout.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: WrapComponent
+    component: WrapworkoutComponent
   }
 ];
 
