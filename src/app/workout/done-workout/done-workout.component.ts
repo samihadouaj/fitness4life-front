@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DayAssesmentService} from '../../aliments/dayAssesment.service';
+import {GeneralService} from '../../shared/services/general.service';
 
 @Component({
   selector: 'app-done-workout',
@@ -8,29 +9,35 @@ import {DayAssesmentService} from '../../aliments/dayAssesment.service';
 })
 export class DoneWorkoutComponent implements OnInit {
 
-  WorkoutstoAddToDayAss: Object = [];
-  CalsIn: number;
-
+  WorkoutstoAddToDayAss: Object[] = [];
+  CalsOut: number;
+  workout ;
   constructor(
-    private dayAssesmentService: DayAssesmentService
+    private dayAssesmentService: DayAssesmentService,
+    private generalService: GeneralService
   ) {
   }
 
   async ngOnInit() {
+    // this is a test bloc
+    console.log('hetha e test bloc le genreal service');
+        console.log(this.generalService.dayAssesment);
+    // end of the test bloc
     this.dayAssesmentService.dayAssesment = await this.dayAssesmentService.getDayAssesmet();
     this.dayAssesmentService.ArrayOfWorkouts = this.dayAssesmentService.dayAssesment.activities;
-    console.log(this.dayAssesmentService.ArrayOfWorkouts);
+    console.log('ligne ejeya feha dayAssesment: ');
+    console.log(this.dayAssesmentService.dayAssesment);
     this.dayAssesmentService.createInvArrayOfWorkouts();
     this.WorkoutstoAddToDayAss = this.dayAssesmentService.WorkoutstoAddToDayAss;
-    this.CalsIn = this.dayAssesmentService.CalsIn;
-    console.log(this.CalsIn);
+    this.CalsOut = this.dayAssesmentService.CalsOut;
+    console.log(this.dayAssesmentService.WorkoutstoAddToDayAss);
     console.log(localStorage.getItem('uid'));
   }
 
-  createWorkoutsArray() {
-    this.dayAssesmentService.createArrayOfWorkouts();
-    console.log(this.dayAssesmentService.ArrayOfMekla);
-  }
+  // createWorkoutsArray() {
+  //   this.dayAssesmentService.createArrayOfWorkouts();
+  //   console.log(this.dayAssesmentService.ArrayOfMekla);
+  // }
 
   submit() {
     this.dayAssesmentService.ArrayOfWorkouts = [];

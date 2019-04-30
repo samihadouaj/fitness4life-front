@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DayAssesmentService} from '../../aliments/dayAssesment.service';
+import {workout} from '../../aliments/workout.model';
 
 @Component({
   selector: 'app-workout-todo',
@@ -10,13 +11,14 @@ export class WorkoutTodoComponent implements OnInit {
 
   @Input() workout;
   @Input() index: number;
-  @Input() duration: number;
+  @Input() qty: number;
   private numberOfCalsForThisItem: number;
   constructor(private dayAssesmentService: DayAssesmentService) { }
 
   ngOnInit() {
-    this.numberOfCalsForThisItem = this.workout.cals * this.duration;
-    console.log(this.duration);
+    console.log(workout);
+    this.numberOfCalsForThisItem = this.workout.kcal * this.qty;
+    console.log(this.qty);
     this.dayAssesmentService.CalsIn += this.numberOfCalsForThisItem;
   }
 

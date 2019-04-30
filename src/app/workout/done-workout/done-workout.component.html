@@ -7,12 +7,12 @@
       <app-workout-todo
         *ngFor="let al of WorkoutstoAddToDayAss; let i = index"
         [workout]="al.wk"
-        [duration]="al.duration"
+        [qty]="al.qty"
         [index] = i
       ></app-workout-todo>
     </div>
   </div>
-  {{CalsIn}}
+  {{CalsOut}}
   <button (click)="submit()" class="btn btn-success">Submit</button>
 </div>
 

@@ -11,7 +11,7 @@ export class WorkoutListComponent implements OnInit {
 
   allworkouts: Object = [];
   result: Object = [];
-  private str: string;
+   str: string;
 
   constructor(private workoutService: WorkoutService,
               private router: Router,
@@ -33,14 +33,14 @@ export class WorkoutListComponent implements OnInit {
 
   }
 
-  async searchByReg(reg) {
-    if (reg == '') {
+  async searchByReg() {
+    if (this.str === '') {
       this.allworkouts = await this.workoutService.getAllWorkouts();
     }
     console.log(this.str);
-    console.log(reg);
+    console.log(this.str);
 
-    this.result = await  this.workoutService.searchbyReg(reg);
+    this.result = await  this.workoutService.searchbyReg(this.str);
     this.allworkouts = this.result;
   }
 

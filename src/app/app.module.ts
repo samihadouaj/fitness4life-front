@@ -12,6 +12,7 @@ import {LoginService} from './login/login.service';
 import {CalculService} from './shared/services/calcul.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {UserService} from './user/user.service';
+import {GeneralService} from './shared/services/general.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {UserService} from './user/user.service';
         AngularFontAwesomeModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard, LoginService, CalculService, UserService],
+    providers: [AuthGuard, LoginService, CalculService, UserService, GeneralService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

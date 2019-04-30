@@ -9,18 +9,20 @@ import {DayAssesmentService} from '../../aliments/dayAssesment.service';
 export class WorkoutElComponent implements OnInit {
   @Input() workout;
   // @Input() index: number;
-  duration: number;
+  qty: number;
   private numberOfCalsForThisItem: number;
   constructor(private dayAssesmentService: DayAssesmentService) { }
 
   ngOnInit() {
-    this.duration = this.workout.duration;
-    console.log(this.duration);
+    this.qty = this.workout.qty ;
+    console.log(this.qty);
   }
 
   add() {
-    this.numberOfCalsForThisItem = (this.workout.kcal * this.duration) ;
-    this.dayAssesmentService.WorkoutstoAddToDayAss.push({wk: this.workout, duration: this.duration});
-    this.dayAssesmentService.CalsIn += this.numberOfCalsForThisItem;
+    this.numberOfCalsForThisItem = (this.workout.kcal * this.qty) ;
+    this.dayAssesmentService.WorkoutstoAddToDayAss.push({wk: this.workout, qty: this.qty});
+    console.log(this.dayAssesmentService.WorkoutstoAddToDayAss);
+    this.dayAssesmentService.CalsOut += this.numberOfCalsForThisItem;
+    console.log(this.dayAssesmentService.CalsOut);
   }
 }
