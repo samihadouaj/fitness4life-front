@@ -9,7 +9,7 @@ import {WorkoutService} from '../workout/workout.service';
 export class DayAssesmentService {
   WorkoutstoAddToDayAss: {wk: any, qty: number} [] = [];
   ArrayOfWorkouts = [];
-  CalsOut = 0;
+  CalsOut: number ;
   constructor(private http: HttpClient,
               private alimentService: AlimentService,
               private workoutService: WorkoutService
@@ -17,7 +17,7 @@ export class DayAssesmentService {
   dayAssesment;
   ArrayOfMekla = [];
   AlimentstoAddToDayAss: {al: any , qty: number} [] = [];
-  CalsIn = 0;
+  CalsIn: number;
   private base_url = 'http://localhost:8080';
 
   deleteAl(al, index) {
@@ -58,9 +58,11 @@ export class DayAssesmentService {
     });
     console.log(headers);
     console.log(this.base_url + '/api/assesment/addMekla/' + localStorage.getItem('uid'));
-    console.log(this.ArrayOfMekla);
+    // console.log(this.ArrayOfMekla);
+    console.log('calsIn elli bech nsubmiteha');
+    console.log(this.CalsIn);
     // tslint:disable-next-line:max-line-length
-    return this.http.post(this.base_url + '/api/assesment/addMekla/' + localStorage.getItem('uid'), {listOfMekla: this.ArrayOfMekla}, {headers: headers});
+    return this.http.post(this.base_url + '/api/assesment/addMekla/' + localStorage.getItem('uid'), {listOfMekla: this.ArrayOfMekla , calsIn: this.CalsIn}, {headers: headers});
   }
 
   deletewk(wk: any, index: number) {
@@ -98,16 +100,16 @@ export class DayAssesmentService {
   }
 
   submitWorkout() {
-    console.log(name);
+    console.log('ligne ejeya el CalsOut elli bech ensubmitih ');
+    console.log(this.CalsOut);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     });
     console.log(headers);
-    console.log(this.base_url + '/api/assesment/addWorkout/' + localStorage.getItem('uid'));
     console.log('ligne ejeya el ArrayOfWorkouts elli bech ensubmitih ');
     console.log(this.ArrayOfWorkouts);
     // tslint:disable-next-line:max-line-length
-    return this.http.post(this.base_url + '/api/assesment/addWorkout/' + localStorage.getItem('uid'), {listOfActivity: this.ArrayOfWorkouts}, {headers: headers});
+    return this.http.post(this.base_url + '/api/assesment/addWorkout/' + localStorage.getItem('uid'), {listOfActivity: this.ArrayOfWorkouts, calsOut: this.CalsOut}, {headers: headers});
   }
 }

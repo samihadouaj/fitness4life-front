@@ -17,6 +17,6 @@ import {WrapComponent} from './wrap/wrap.component';
     FormsModule,
     AlimentRoutingModule
   ],
-  providers: [AlimentService, DayAssesmentService]
+  providers: [AlimentService]
 })
 export class AlimentsModuleModule { }

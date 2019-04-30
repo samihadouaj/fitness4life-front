@@ -26,15 +26,16 @@ export class ConsumedAlimentsComponent implements OnInit {
     console.log(localStorage.getItem('uid'));
   }
 
-  createMeklaArray() {
-    this.dayAssesmentService.createArrayOfMekla();
-    console.log(this.dayAssesmentService.ArrayOfMekla);
-  }
+  // createMeklaArray() {
+  //   this.dayAssesmentService.createArrayOfMekla();
+  //   console.log(this.dayAssesmentService.ArrayOfMekla);
+  // }
 
  submit() {
     this.dayAssesmentService.ArrayOfMekla = [];
    this.dayAssesmentService.createArrayOfMekla();
-   console.log(this.dayAssesmentService.ArrayOfMekla);
+     console.log(this.dayAssesmentService.ArrayOfMekla);
+     this.CalsIn = this.dayAssesmentService.CalsIn;
      this.dayAssesmentService.submitMekla().subscribe((res) =>  {
        console.log(res);
      });

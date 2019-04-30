@@ -20,8 +20,8 @@ export class DoneWorkoutComponent implements OnInit {
 
   async ngOnInit() {
     // this is a test bloc
-    console.log('hetha e test bloc le genreal service');
-        console.log(this.generalService.dayAssesment);
+    // console.log('hetha e test bloc le genreal service');
+    // console.log(this.generalService.dayAssesment);
     // end of the test bloc
     this.dayAssesmentService.dayAssesment = await this.dayAssesmentService.getDayAssesmet();
     this.dayAssesmentService.ArrayOfWorkouts = this.dayAssesmentService.dayAssesment.activities;
@@ -31,7 +31,9 @@ export class DoneWorkoutComponent implements OnInit {
     this.WorkoutstoAddToDayAss = this.dayAssesmentService.WorkoutstoAddToDayAss;
     this.CalsOut = this.dayAssesmentService.CalsOut;
     console.log(this.dayAssesmentService.WorkoutstoAddToDayAss);
-    console.log(localStorage.getItem('uid'));
+    console.log('ligne ejeya feha calsout jeya metable toul:');
+    console.log(this.dayAssesmentService.CalsOut);
+    this.CalsOut = this.dayAssesmentService.CalsOut;
   }
 
   // createWorkoutsArray() {
@@ -41,11 +43,14 @@ export class DoneWorkoutComponent implements OnInit {
 
   submit() {
     this.dayAssesmentService.ArrayOfWorkouts = [];
+
+    this.CalsOut = this.dayAssesmentService.CalsOut;
+
     this.dayAssesmentService.createArrayOfWorkouts();
-    console.log(this.dayAssesmentService.ArrayOfWorkouts);
+    // this.dayAssesmentService.dayAssesment.calBurned = this.dayAssesmentService.CalsOut;
+    // console.log(this.dayAssesmentService.ArrayOfWorkouts);
     this.dayAssesmentService.submitWorkout().subscribe((res) => {
       console.log(res);
     });
-
   }
 }

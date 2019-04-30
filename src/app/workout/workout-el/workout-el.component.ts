@@ -19,10 +19,10 @@ export class WorkoutElComponent implements OnInit {
   }
 
   add() {
-    this.numberOfCalsForThisItem = (this.workout.kcal * this.qty) ;
+    this.numberOfCalsForThisItem = (this.workout.kcal * this.qty) / this.workout.qty ;
     this.dayAssesmentService.WorkoutstoAddToDayAss.push({wk: this.workout, qty: this.qty});
     console.log(this.dayAssesmentService.WorkoutstoAddToDayAss);
     this.dayAssesmentService.CalsOut += this.numberOfCalsForThisItem;
-    console.log(this.dayAssesmentService.CalsOut);
+     console.log(this.dayAssesmentService.CalsOut);
   }
 }

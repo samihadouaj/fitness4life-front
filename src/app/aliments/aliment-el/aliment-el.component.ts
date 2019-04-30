@@ -21,7 +21,8 @@ export class AlimentElComponent implements OnInit {
   add() {
     this.numberOfCalsForThisItem = (this.aliment.cals * this.quantity) / this.aliment.qty;
     this.dayAssesmentService.AlimentstoAddToDayAss.push({al: this.aliment, qty: this.quantity});
-
     this.dayAssesmentService.CalsIn += this.numberOfCalsForThisItem;
+    console.log(this.dayAssesmentService.CalsIn);
+
   }
 }

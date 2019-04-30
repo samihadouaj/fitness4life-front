@@ -4,7 +4,7 @@
   class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ workout.name }}</h4>
-    <p class="list-group-item-text">{{this.workout.kcal * this.qty}} Kcal</p>
+    <p class="list-group-item-text">{{(this.workout.kcal * this.qty)/ this.workout.qty |number}} Kcal</p>
   </div>
   <span class="pull-right">
        <label for="qty">quantity</label>

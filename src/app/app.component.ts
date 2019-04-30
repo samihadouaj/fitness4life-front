@@ -12,5 +12,7 @@ export class AppComponent implements OnInit {
 
     async ngOnInit() {
      this.generalService.dayAssesment = await this.generalService.getDayAssesmet();
+     // this.generalService.fetchCalsIn();
+     // this.generalService.fetchCalsOut();
     }
 }

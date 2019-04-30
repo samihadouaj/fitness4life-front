@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GeneralService} from '../../shared/services/general.service';
+import {DayAssesmentService} from '../../aliments/dayAssesment.service';
 
 @Component({
   selector: 'app-wrapworkout',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapworkoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private generalService: GeneralService, private dayAssesment: DayAssesmentService) { }
 
   ngOnInit() {
+    this.dayAssesment.CalsOut = this.generalService.dayAssesment.calBurned;
   }
 
 }
