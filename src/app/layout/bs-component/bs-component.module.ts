@@ -7,18 +7,10 @@ import { BsComponentRoutingModule } from './bs-component-routing.module';
 import { BsComponentComponent } from './bs-component.component';
 import {
     AlertComponent,
-    ButtonsComponent,
-    ModalComponent,
     CollapseComponent,
-    DatePickerComponent,
     DropdownComponent,
-    PaginationComponent,
-    PopOverComponent,
-    ProgressbarComponent,
-    TabsComponent,
-    RatingComponent,
-    TooltipComponent,
-    TimepickerComponent
+    PaginationComponent
+
 } from './components';
 import { PageHeaderModule } from '../../shared';
 
@@ -33,19 +25,11 @@ import { PageHeaderModule } from '../../shared';
     ],
     declarations: [
         BsComponentComponent,
-        ButtonsComponent,
         AlertComponent,
-        ModalComponent,
+
         CollapseComponent,
-        DatePickerComponent,
         DropdownComponent,
-        PaginationComponent,
-        PopOverComponent,
-        ProgressbarComponent,
-        TabsComponent,
-        RatingComponent,
-        TooltipComponent,
-        TimepickerComponent
+        PaginationComponent
     ]
 })
 export class BsComponentModule {}

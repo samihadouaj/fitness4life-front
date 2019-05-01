@@ -26,14 +26,15 @@ export class ConsalimentElComponent implements OnInit {
     console.log('qty: ' + this.quantity);
     console.log(this.dayAssesmentService.CalsIn);
 
-    this.numberOfCalsForThisItem = (this.aliment.kcal * this.quantity) / this.aliment.qty ;
+    this.numberOfCalsForThisItem = (this.aliment.cals * this.quantity) / this.aliment.qty ;
+    console.log(this.numberOfCalsForThisItem );
     this.dayAssesmentService.CalsIn -= this.numberOfCalsForThisItem;
     if ( this.dayAssesmentService.CalsIn < 0 ) {
-      this.dayAssesmentService.CalsOut = 0;
+      this.dayAssesmentService.CalsIn = 0;
     }
-
-     this.dayAssesmentService.deleteAl(this.aliment , this.index);
-   }
+    this.dayAssesmentService.deleteAl(this.aliment , this.index);
+    console.log(this.dayAssesmentService.CalsIn);
+  }
 
 
 }

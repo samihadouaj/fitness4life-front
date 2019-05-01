@@ -9,8 +9,8 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-            { path: 'aliments', loadChildren: './aliments/aliments-module.module#AlimentsModuleModule' },
-            { path: 'workouts', loadChildren: './workout/workout.module#WorkoutModule' },
+          { path: 'aliments', loadChildren: './aliments/aliments-module.module#AlimentsModuleModule' },
+          { path: 'workouts', loadChildren: './workout/workout.module#WorkoutModule' },
             { path: 'userProfile', loadChildren: './user/user.module#UserModule' },
         ]
     }
