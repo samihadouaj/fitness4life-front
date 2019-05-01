@@ -24,7 +24,8 @@ import {DayAssesmentService} from './aliments/dayAssesment.service';
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
-        AngularFontAwesomeModule
+        AngularFontAwesomeModule,
+
     ],
     declarations: [AppComponent],
     providers: [AuthGuard, LoginService, CalculService, UserService, GeneralService, DayAssesmentService],

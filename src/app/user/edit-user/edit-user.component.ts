@@ -15,7 +15,7 @@ user;
  async ngOnInit() {
    this.userService.currentUser = await this.userService.getUserInfo();
    this.user =  this.userService.currentUser;
-   console.log(this.user.gender);
+   console.log(this.user);
    this.f.setValue({
      firstName: this.user.firstName,
      lastName: this.user.lastName,
@@ -24,11 +24,12 @@ user;
      age: this.user.age,
      sex: this.user.gender,
      current_weight: this.user.current_weight,
-     height: this.user.high,
+     height: this.user.height,
      target_weight: this.user.target_weight,
      activity_lvl:  this.user.activity_lvl,
-     diet_pace: this.user.diet_pace
+   //  diet_pace: this.user.diet_pace
    });
+   console.log(this.f.value);
   }
 
   async onSubmit(f: NgForm) {

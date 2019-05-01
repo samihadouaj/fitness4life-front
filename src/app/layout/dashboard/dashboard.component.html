@@ -15,21 +15,45 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
+        <div class="col-md-4">
+          <ngx-gauge [type]="gaugeType"
+                     [value]="currentuser.imc"
+                     [label]="gaugeLabel"
+                     [thresholds]="thresholdConfig"
+                     max="50"
+          >
+          </ngx-gauge>
+
+
         </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
+
+        <div class="col-md-4 ">
+          <ngx-gauge [type]="gaugeType"
+                     [value]="currentPourcentage"
+                     [label]="InMoinOut+'cals'"
+                     [thresholds]="thresholdConfigCals"
+                     max="100"
+          >
+          </ngx-gauge>
+          <ngx-gauge-label *ngIf="dexists == false" >
+           start a day and fill your consumptions to see informations about calories
+          </ngx-gauge-label>
         </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+
+      <div class="col-md-4" style="margin-top: 80px" *ngIf="dexists == false">
+        <button class="btn btn-danger" (click)="createDay()"> Start Your Day</button>
+      </div>
+      </div>
+
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <button class="btn btn-danger" (click)="finishDay()" *ngIf="dexists == true">Finish Day</button>
+          </div>
         </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
-        </div>
-    </div>
+
     <hr />
-    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <ngb-alert [type]="alert1.type" (close)="closeAlert(alert1)" >{{ alert1.message }}</ngb-alert>
+    <ngb-alert [type]="alert2.type" (close)="closeAlert(alert2)" *ngIf="balance>0">{{ alert2.message }}</ngb-alert>
     <hr />
     <!--<div class="row">-->
         <!--<div class="col-lg-8">-->
@@ -61,3 +85,6 @@
         <!-- /.col-lg-4 -->
     <!--</div>-->
 </div>
+
+
+

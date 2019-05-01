@@ -24,24 +24,28 @@ export class SignupComponent implements OnInit {
 
   onSubmit(f) {
     f.value.imc = this.calculService.calculImc(+f.value.current_weight, +f.value.height);
+    Math.round(f.value.imc);
     console.log(f.value.current_weight);
     // tslint:disable-next-line:max-line-length
     f.value.calories_needed = this.calculService.calculCaloriesNeeded(f.value.current_weight, f.value.height, f.value.age, f.value.sex, f.value.activity_lvl);
+    Math.round(f.value.calories_needed);
+
     console.log(f.value);
 
-    // this.signupService.signup(f.value).subscribe((resp: HttpErrorResponse) => {
-    //     console.log(resp.error.error);
-    //   },
-    //   error1 => {
-    //     console.log(error1.error);
-    //     if (error1.error === 'Bad request') {
-    //       this.ERROR_MSG = 'enter a password and retry';
-    //     } else {
-    //       this.error = true;
-    //       this.ERROR_MSG = error1.error;
-    //     }
-    //   });
+    this.signupService.signup(f.value).subscribe((resp: HttpErrorResponse) => {
+        console.log(resp.error.error);
+        this.router.navigate(['/login']);
 
-     // this.router.navigate(['part2'], {relativeTo: this.route});
+      },
+      error1 => {
+        console.log(error1.error);
+        if (error1.error === 'Bad request') {
+          this.ERROR_MSG = 'enter a password and retry';
+        } else {
+          this.error = true;
+          this.ERROR_MSG = error1.error;
+        }
+      });
+
   }
 }
