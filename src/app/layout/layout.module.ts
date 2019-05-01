@@ -18,7 +18,8 @@ import {BrowserModule} from '@angular/platform-browser';
     NgbDropdownModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent
   ],
   declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
 })

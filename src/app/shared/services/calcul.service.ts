@@ -10,7 +10,7 @@ export class CalculService {
       return poid / (taille * taille);
   }
 
-    calculCaloriesNeeded(weight, height, age, sex, activity) {
+    calculCaloriesNeeded(weight, height, age, sex, activity , target_weight) {
        let result = 0;
        height = height * 100;
        this.energyfactor = 1;
@@ -29,6 +29,25 @@ export class CalculService {
 
        result = result * this.energyfactor - 250; // 250 a day => 250 * 14 = 3500 => 0.45359237 kg lost => 1kg in a month
        console.log(result);
-      return result;
+       if (target_weight < weight) {
+      return result - 150;
+       } else if (target_weight > weight) { return result + 100; } else {
+         return  result;
+       }
+    }
+
+    predictDifferenceIn5Weeks(balance: any [], weight, target_weight) {
+    let moy = 0;
+      balance.forEach(v => {
+        if (target_weight > weight) {
+          v += 100;
+        }
+        if (target_weight < weight) {
+          v -= 150;
+        }
+        moy += v;
+      });
+      moy = moy / balance.length;
+      return (35 * moy) / 7700;
     }
 }

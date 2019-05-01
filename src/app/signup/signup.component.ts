@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     Math.round(f.value.imc);
     console.log(f.value.current_weight);
     // tslint:disable-next-line:max-line-length
-    f.value.calories_needed = this.calculService.calculCaloriesNeeded(f.value.current_weight, f.value.height, f.value.age, f.value.sex, f.value.activity_lvl);
+    f.value.calories_needed = this.calculService.calculCaloriesNeeded(f.value.current_weight, f.value.height, f.value.age, f.value.sex, f.value.activity_lvl, f.value.target_weight);
     Math.round(f.value.calories_needed);
 
     console.log(f.value);

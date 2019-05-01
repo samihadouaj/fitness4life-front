@@ -8,6 +8,7 @@ import {WorkoutListComponent} from './workout-list/workout-list.component';
 import {WorkoutRoutingModule} from './workout-routing.module';
 import {FormsModule} from '@angular/forms';
 import {DayAssesmentService} from '../aliments/dayAssesment.service';
+import {LayoutModule} from '../layout/layout.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {DayAssesmentService} from '../aliments/dayAssesment.service';
   imports: [
     CommonModule,
     WorkoutRoutingModule,
-    FormsModule
+    FormsModule,
+    LayoutModule
   ]
 })
 export class WorkoutModule { }

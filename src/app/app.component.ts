@@ -15,8 +15,6 @@ export class AppComponent implements OnInit {
      this.generalService.dayAssesment = await this.generalService.getDayAssesmet();
      this.generalService.dExists = await this.generalService.dayAssesmentExists();
      console.log(this.generalService.dExists);
-     const r = this.calculService.calculCaloriesNeeded(68, 1.78, 22, 'M', 'Sedentary Person');
-     console.log(r);
      // this.generalService.fetchCalsIn();
      // this.generalService.fetchCalsOut();
     }

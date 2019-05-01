@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import {GeneralService} from '../../shared/services/general.service';
+import {CalculService} from '../../shared/services/calcul.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -38,7 +39,8 @@ export class DashboardComponent implements OnInit {
   private alert1: { id: number; type: string; message: string };
   private alert2: { id: number; type: string; message: string };
   public balance;
-    constructor(private generalService: GeneralService) {
+  private predctedWeight;
+    constructor(private generalService: GeneralService, private calculService :CalculService) {
         this.sliders.push(
           {
             imagePath: 'assets/images/slide55.jpg',
@@ -66,7 +68,11 @@ export class DashboardComponent implements OnInit {
       // njibou el user
      this.generalService.currentUser = await this.generalService.getCurrentUser();
      this.currentuser = await this.generalService.currentUser;
+     console.log(this.currentuser);
 
+     // ne7sboulou el prediction mte3ou baa 5 weeks
+     this.predctedWeight = this.calculService.predictDifferenceIn5Weeks(this.currentuser.balance , this.currentuser.current_weight, this.currentuser.target_weight) + this.currentuser.current_weight;
+     console.log(this.predctedWeight);
      // nchoufouh andou day assesment walla le
       this.dexists = await this.generalService.dayAssesmentExists();
       console.log(this.dexists);

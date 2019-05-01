@@ -1,3 +1,8 @@
+<app-header> </app-header>
+<app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+<section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+
+
 <div class="row">
   <div class="col-md-5 col-md-offset-1">
     <app-workout-list></app-workout-list>
@@ -7,3 +12,4 @@
     <app-done-workout></app-done-workout>
   </div>
 </div>
+</section>

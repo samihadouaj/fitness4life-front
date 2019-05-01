@@ -8,6 +8,7 @@ import {DayAssesmentService} from '../dayAssesment.service';
   styleUrls: ['./wrap.component.scss']
 })
 export class WrapComponent implements OnInit {
+  collapedSideBar: boolean;
 
   constructor(private generalService: GeneralService, private dayAssesment: DayAssesmentService) { }
 
@@ -15,5 +16,10 @@ export class WrapComponent implements OnInit {
     this.dayAssesment.CalsIn = this.generalService.dayAssesment.totalCalIn;
 
   }
+
+  receiveCollapsed($event) {
+    this.collapedSideBar = $event;
+  }
+
 
 }

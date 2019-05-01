@@ -8,6 +8,7 @@ import {DayAssesmentService} from '../../aliments/dayAssesment.service';
   styleUrls: ['./wrapworkout.component.scss']
 })
 export class WrapworkoutComponent implements OnInit {
+  private collapedSideBar: boolean;
 
   constructor(private generalService: GeneralService, private dayAssesment: DayAssesmentService) { }
 
@@ -15,4 +16,8 @@ export class WrapworkoutComponent implements OnInit {
     this.dayAssesment.CalsOut = this.generalService.dayAssesment.calBurned;
   }
 
+
+  receiveCollapsed($event) {
+    this.collapedSideBar = $event;
+  }
 }

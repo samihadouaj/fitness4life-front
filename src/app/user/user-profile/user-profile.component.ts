@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 user;
+  private collapedSideBar: boolean;
   constructor(private userService: UserService ,
               private  router: Router,
               private route: ActivatedRoute) {
@@ -22,5 +23,9 @@ user;
 
   onEdit() {
       this.router.navigate(['edit'], {relativeTo: this.route});
+  }
+
+  receiveCollapsed($event) {
+    this.collapedSideBar = $event;
   }
 }

@@ -9,13 +9,16 @@ import {DayAssesmentService} from './dayAssesment.service';
 import {ConsumedAlimentsComponent} from './consumed-aliments/consumed-aliments.component';
 import {ConsalimentElComponent} from './consaliment-el/consaliment-el.component';
 import {WrapComponent} from './wrap/wrap.component';
+import {SidebarComponent} from '../layout/components/sidebar/sidebar.component';
+import {LayoutModule} from '../layout/layout.module';
 
 @NgModule({
   declarations: [AlimentElComponent, AlimentListComponent, ConsumedAlimentsComponent, WrapComponent, ConsalimentElComponent],
   imports: [
     CommonModule,
     FormsModule,
-    AlimentRoutingModule
+    AlimentRoutingModule,
+    LayoutModule,
   ],
   providers: [AlimentService]
 })
