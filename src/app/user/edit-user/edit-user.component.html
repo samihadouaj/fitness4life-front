@@ -1,129 +1,230 @@
 <app-header> </app-header>
 <div >
-  <div class="row justify-content-md-center">
-    <div class="col-md-4">
-      <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-      <h3>Edit your informations</h3>
-      <form #f = "ngForm" (ngSubmit)="onSubmit(f)" >
-        <div class="form-content">
-          <div class="form-group">
-
-            <div class="form-group">
-            <input type="text"
-                   class="form-control input-underline input-lg"
-                   id="firstName"
-                   ngModel
-                   name ="firstName"
-                   placeholder="firstName"
-                   required>
-            </div>
-
-            <div class="form-group">
-            <input type="text"
-                   class="form-control input-underline input-lg"
-                   id="lastName"
-                   name="lastName"
-                   [ngModel]
-                   placeholder="lastName">
-            </div>
-
-            <div class="form-group">
-            <input type="text"
-                   class="form-control input-underline input-lg"
-                   id="username"
-                   name="username"
-                   ngModel
-                   placeholder="username">
-          </div>
-
-            <div class="form-group">
-            <input type="email"
-                   class="form-control input-underline input-lg"
-                   id="email"
-                   name="email"
-                   ngModel
-                   placeholder="email">
+<div class="login-page" [@routerTransition] >
+  <div class="row justify-content-md-center" >
+    <div class="col-md-4" >
+      <img class="user-avatar" src="../../assets/images/logo.png" width="150px"/>
+      <h1>Be part of our huge family</h1>
+      <div class="row" >
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="userForm">
+          <div class="col-md-5 col">
+            <div class="form-content">
+              <div class="form-group">
+                <input type="text"
+                       class="form-control input-underline input-lg"
+                       id="firstName"
+                       size="500"
+                       ngModel
+                       name="firstName"
+                       placeholder="firstName"
+                       formControlName="fname"
+                       required>
+              </div>
+              <div *ngIf="userForm.controls['fname'].hasError('required')">
+                <small>FirstName is required  !</small>
               </div>
 
-            <div class="form-group">
-            <input type="number"
-                   class="form-control input-underline input-lg"
-                   id="age"
-                   name="age"
-                   ngModel
-                   placeholder="age">
+              <div>
+                <input type="text"
+                       class="form-control input-underline input-lg"
+                       id="lastName"
+                       name="lastName"
+                       ngModel
+                       placeholder="lastName"
+                       formControlName="lname" required>
+              </div>
+
+             <div *ngIf="userForm.controls['lname'].hasError('required')">
+              <small>LastName is required  !</small>
             </div>
 
+              <div>
+                <input type="text"
+                       class="form-control input-underline input-lg"
+                       id="username"
+                       name="username"
+                       ngModel
+                       placeholder="username"
+                       formControlName="uname" required>
+              </div>
 
-            <div class="form-group">
-
-            <input type="text"
-                   class="form-control input-underline input-lg"
-                   id="sex"
-                   name="sex"
-                   ngModel
-                   placeholder="sex">
+             <div *ngIf="userForm.controls['uname'].hasError('required')" >
+              <small>Username is required  !</small>
+            </div>
+            <div *ngIf="userForm.controls['uname'].hasError('maxlength')">
+              <small>Username length must not surpass 20 characters !</small>
             </div>
 
+              <div>
+                <input type="email"
+                       class="form-control input-underline input-lg"
+                       id="email"
+                       name="email"
+                       ngModel
+                       placeholder="email"
+                       formControlName="umail" required>
+              </div>
+
+              <div *ngIf="userForm.controls['umail'].hasError('required')" >
+                <small>Email is required  !</small>
+              </div>
 
 
+              <div>
+                <input  type="number"
+                       class="form-control input-underline input-lg"
+                       id="age"
+                       name="age"
+                       ngModel
+                       placeholder="age"
+                       formControlName="uage" required>
+              </div>
+              <div *ngIf="userForm.controls['uage'].hasError('required')"  >
+                <small>Age is required  !</small>
+              </div>
 
-          <!--<div>-->
-          <!--<input type="password"-->
-          <!--class="form-control input-underline input-lg"-->
-          <!--id="passwordr" placeholder="Repeat Password">-->
-          <!--</div>-->
+              <div *ngIf="userForm.controls['uage'].hasError('min')"  >
+                <small>Age must be >0 !</small>
+              </div>
 
+              <div *ngIf="userForm.controls['uage'].hasError('max')"  >
+                <small>Age must be <100 !</small>
+              </div>
+<br><br>
+              <div>
+                <Label> Sex</Label>
+                <select id="sex" name="sex"  ngModel class="grey_color" >
+                  <option value="M" selected > M </option>
+                  <option value="F" > F </option>
+                  <!--class="form-control input-underline input-lg"
+                  id="sex"
+                  name="sex"
+                  ngModel
+                  placeholder="sex">
+                  -->
+                </select>
+              </div>
 
-            <div class="form-group">
-            <input type="number"
-                   class="form-control input-underline input-lg"
-                   id="current_weight"
-                   name = "current_weight"
-                   ngModel
-                   placeholder="current_weight">
+              <div>
+                <input type="password"
+                       class="form-control input-underline input-lg"
+                       id="password"
+                       name="password"
+                       ngModel
+                       placeholder="Password" required>
+              </div>
+
+              <!--<div>-->
+              <!--<input type="password"-->
+              <!--class="form-control input-underline input-lg"-->
+              <!--id="passwordr" placeholder="Repeat Password">-->
+              <!--</div>-->
+              <div *ngIf="showError == true">
+                <span class="alert">username or password already exists</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+
+            <div class="form-content">
+              <div class="form-group">
+                <input type="number"
+                       class="form-control input-underline input-lg"
+                       id="current_weight"
+                       name="current_weight"
+                       ngModel
+                       placeholder="current_weight"
+                       formControlName="c_weight" required>
+              </div>
+              <div *ngIf="userForm.controls['c_weight'].hasError('required')"  >
+                <small>Current weight is required  !</small>
+              </div>
+
+              <div *ngIf="userForm.controls['c_weight'].hasError('min')"  >
+                <small>Current Weight must be >0 !</small>
+              </div>
+
+              <div class="form-group">
+                <input type="number"
+                       class="form-control input-underline input-lg"
+                       id="height"
+                       name="height"
+                       ngModel
+                       placeholder="height"
+                       formControlName="uheight" required>
+              </div>
+              <div *ngIf="userForm.controls['uheight'].hasError('required')"  >
+                <small> Height is required  !</small>
+              </div>
+
+              <div *ngIf="userForm.controls['uheight'].hasError('min')"  >
+                <small>Height  Weight must be >0 !</small>
+              </div>
+
+              <div class="form-group">
+                <input type="number"
+                       class="form-control input-underline input-lg"
+                       id="target_weight"
+                       name="target_weight"
+                       ngModel
+                       placeholder="target weight"
+                       formControlName="t_weight" required>
+              </div>
+              <div *ngIf="userForm.controls['t_weight'].hasError('required')" >
+                <small>Target weight is required  !</small>
+              </div>
+
+              <div *ngIf="userForm.controls['t_weight'].hasError('min')"  >
+                <small>Target Weight must be >0 !</small>
+              </div>
+
+              <div class="form-group">
+                <Label> Activity Level</Label>
+                  <select  id="activity_lvl" name="activity_lvl"  ngModel class="grey_color" required >
+<!--                    <option value="N"  selected> Activity Level</option>-->
+                    <option value="S" selected > Sedentary Person</option>
+                    <option value="M" > Moderately Active Person </option>
+                    <option value="A" > Active Person </option>
+                    <!--class="form-control input-underline input-lg"
+                    id="sex"
+                    name="sex"
+                    ngModel
+                    placeholder="sex">
+                    -->
+                  </select>
+                </div>
+              <!--
+                <input type="text"
+                       class="form-control input-underline input-lg"
+                       id="activity_lvl"
+                       ngModel
+                       name="activity_lvl"
+                       placeholder="activity lvl">
+              </div>
+              -->
+<!--
+              <div class="form-group">
+                <input type="text"
+                       class="form-control input-underline input-lg"
+                       id="diet_pace"
+                       ngModel
+                       name="diet_pace"
+                       placeholder="diet pace">
+              </div>
 
             </div>
-          <div class="form-group">
-            <input type="number"
-                   class="form-control input-underline input-lg"
-                   id="height"
-                   name = "height"
-                   ngModel
-                   placeholder="height">
           </div>
+          -->
+              <div class="warning" *ngIf="error==true">{{ERROR_MSG}}</div>
+              <button class="btn rounded-btn" type="submit">Register</button>&nbsp;
 
-          <div class="form-group">
-            <input type="number"
-                   class="form-control input-underline input-lg"
-                   id="target_weight"
-                   name="target_weight"
-                   ngModel
-                   placeholder="target weight">
+            </div>
           </div>
-
-          <div class="form-group">
-            <input type="text"
-                   class="form-control input-underline input-lg"
-                   id="activity_lvl"
-                   ngModel
-                   name="activity_lvl"
-                   placeholder="activity lvl">
-          </div>
-
-          <div class="form-group">
-<!--            <input type="text"-->
-<!--                   class="form-control input-underline input-lg"-->
-<!--                   id="diet_pace"-->
-<!--                   ngModel-->
-<!--                   name="diet_pace"-->
-<!--                   placeholder="diet pace">-->
-
-        <button class="btn rounded-btn" type="submit">Register</button>
-          </div>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      </div>
     </div>
   </div>
-</div>
+  </div>

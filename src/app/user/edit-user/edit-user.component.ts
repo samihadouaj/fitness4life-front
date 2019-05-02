@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../user.service';
-import {NgForm} from '@angular/forms';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-user',
@@ -12,6 +12,19 @@ user;
 @ViewChild('f') f: NgForm;
   constructor(private userService: UserService) { }
 
+
+ userForm = new FormGroup({
+    fname: new FormControl([Validators.required]),
+    lname: new FormControl([Validators.required]),
+    uname: new FormControl([Validators.required, Validators.maxLength(20)]),
+    umail: new FormControl([Validators.required]),
+    uage: new FormControl([Validators.required, Validators.min(1), Validators.max(99)]),
+    c_weight: new FormControl([Validators.required, Validators.min(1)]),
+    uheight: new FormControl([Validators.required, Validators.min(1)]),
+    t_weight: new FormControl([Validators.required, Validators.min(1)])
+  });
+
+  
  async ngOnInit() {
    this.userService.currentUser = await this.userService.getUserInfo();
    this.user =  this.userService.currentUser;
@@ -51,3 +64,7 @@ user;
      await this.userService.updateUser(user);
   }
 }
+
+
+
+

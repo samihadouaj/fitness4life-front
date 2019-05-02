@@ -1,19 +1,34 @@
 <a
   style="cursor: pointer;"
   routerLinkActive="active"
-  class="list-group-item clearfix">
+  class="clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ aliment.name }}</h4>
     <p class="list-group-item-text">{{ aliment.cals }} Kcal</p>
   </div>
   <span class="pull-right">
-       <label for="qty">quantity</label>
-       <input
+      <!--<div class="form-group">
+
+        <label for="qty">quantity</label>
+        <div class="input-group">
+        <input
 
                id="qty" type="number"
                style="width: 50px"
                 [(ngModel)] = "quantity"
-       >
-           <button class ="btn btn-info" (click)="add()">+</button>
-      </span>
+               class="form-control">
+           <span><button class ="btn btn-secondary" (click)="add()">+</button></span>
+        </div>
+      </div>-->
+    <div class="input-group mb-3">
+      <input type="text"
+             id="qty" type="number"
+             style="width: 50px"
+             [(ngModel)] = "quantity"
+             class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2" (click)="add()">+</span>
+      </div>
+      </div>
+  </span>
 </a>

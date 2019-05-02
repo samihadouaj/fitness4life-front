@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SignupService} from './signup.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {CalculService} from '../shared/services/calcul.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-signup',
@@ -16,7 +17,17 @@ export class SignupComponent implements OnInit {
                 private  router: Router,
     private signupService: SignupService,
                 private calculService: CalculService) {}
-    showError = false;
+  userForm = new FormGroup({
+    fname: new FormControl([Validators.required]),
+    lname: new FormControl([Validators.required]),
+    uname: new FormControl([Validators.required, Validators.maxLength(20)]),
+    umail: new FormControl([Validators.required]),
+    uage: new FormControl([Validators.required, Validators.min(1), Validators.max(99)]),
+    c_weight: new FormControl([Validators.required, Validators.min(1)]),
+    uheight: new FormControl([Validators.required, Validators.min(1)]),
+    t_weight: new FormControl([Validators.required, Validators.min(1)])
+  });
+showError = false;
   ERROR_MSG: string;
   error = false;
     ngOnInit() {}

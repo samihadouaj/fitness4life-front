@@ -1,6 +1,5 @@
 <div class="container-fluid">
-  <h2 style="color: #7b0f00">Select Workouts! </h2>
-  <p align="left">
+  <div class="form-group input-group">
     <input type="text"
            #workoutn
            id="search"
@@ -9,16 +8,27 @@
            placeholder="Search for..."
            required
            (keyup)="searchByReg()"
-    >
-    <button type="submit" value="go" id="submit" (click)="search(workoutn)">GO</button>
-  </p>
+           class="form-control">
+
+    <button type="submit" value="go" id="submit" (click)="search(workoutn)" class="btn btn-secondary">
+      <i class="fa fa-search"></i></button>
+  </div>
   <hr>
   <div class="row">
     <div class="col-md-10 col-offset-1">
-      <app-workout-el
+      <ul class="list-group">
+        <li class="list-group-item disabled" style="color:#545454; background-color:#eff0f2;">Workouts</li>
+        <li *ngFor="let wk of allworkouts; let i = index"
+              class="list-group-item">
+          <app-workout-el
+            [workout] ="wk"
+          ></app-workout-el>
+        </li>
+      </ul>
+ <!--     <app-workout-el
         *ngFor="let wk of allworkouts; let i = index"
         [workout] ="wk"
-      ></app-workout-el>
+      ></app-workout-el>-->
     </div>
 
   </div>

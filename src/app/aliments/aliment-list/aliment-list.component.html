@@ -1,26 +1,40 @@
-<div class="container-fluid">
-<h2 style="color: #7b0f00">Select consumed aliments ! </h2>
-<p align="left">
+<!--<h2 style="">Select consumed aliments ! </h2>
+  <div class="form-group input-group">
+    <input type="text" class="form-control">
+    <div class="input-group -append">
+      <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+    </div>
+  </div>
+  -->
+
+  <div class="form-group input-group">
   <input type="text"
          #alimentName
          id="search"
+         class="form-control"
          [(ngModel)]="str"
          [ngModelOptions]="{standalone: true}"
-         placeholder="Search for..."
+         placeholder="Search for aliments..."
          required
-         (keyup)="searchByReg(alimentName.value)"
-  >
-  <button type="submit" value="go" id="submit" (click)="search(alimentName.value)">GO</button>
-</p>
-<hr>
+         (keyup)="searchByReg(alimentName.value)">
+
+  <button type="submit" value="go" id="submit" (click)="search(alimentName.value)" class="btn btn-secondary">
+    <i class="fa fa-search"></i></button>
+ </div>
+<hr><p align="left">
+
 <div class="row">
-  <div class="col-md-10 col-offset-1">
-    <app-aliment-el
-      *ngFor="let al of allAliments; let i = index"
+  <div class="col-md-12 col-offset-1">
+      <ul class="list-group">
+        <li class="list-group-item disabled" style="color:#545454; background-color:#eff0f2;">Aliments</li>
+        <li   *ngFor="let al of allAliments; let i = index"
+              class="list-group-item">
+      <app-aliment-el
       [aliment]="al"
       ></app-aliment-el>
+        </li>
+      </ul>
   </div>
 
 </div>
 
-</div>

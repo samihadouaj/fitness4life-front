@@ -1,12 +1,12 @@
 <a
   style="cursor: pointer;"
-  routerLinkActive="active"
-  class="list-group-item clearfix">
+  routerLinkActive="active">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ workout.name }}</h4>
     <p class="list-group-item-text">{{(this.workout.kcal * this.qty)/ this.workout.qty |number}} Kcal</p>
   </div>
   <span class="pull-right">
+<!--
        <label for="qty">quantity</label>
        <input
          [(ngModel)] = "qty"
@@ -16,8 +16,20 @@
        >
 
            <button class ="btn btn-warning" (click)="deletewk()">-</button>
+-->
 
-      </span>
+    <div class="input-group mb-3">
+        <input
+          [(ngModel)] = "qty"
+          id="qty" type="number"
+          style="width: 50px;background-color: white"
+          disabled
+          class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2" (click)="deletewk()">-</span>
+      </div>
+      </div>
+  </span>
 
 </a>
 

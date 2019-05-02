@@ -1,17 +1,33 @@
 <div class="container-fluid">
-  <h2 style="color: #7b0f00">Ey enti klit hetha lkol !!! </h2>
-
-  <hr>
   <div class="row">
     <div class="col-md-10 col-offset-1">
+      <ul class="list-group">
+        <li class="list-group-item disabled" style="color:#545454; background-color:#eff0f2;">Consumed Aliments</li>
+        <li   *ngFor="let al of AlimentstoAddToDayAss; let i = index"
+              class="list-group-item">
       <app-consaliment-el
-        *ngFor="let al of AlimentstoAddToDayAss; let i = index"
         [aliment]="al.al"
         [quantity]="al.qty"
         [index] = i
       ></app-consaliment-el>
+      <li class="list-group-item">
+
+        <h5 class="list-group-item-heading">Total</h5>
+        <p class="list-group-item-text">
+          {{CalsIn}} cal</p>
+      </li>
+        <li class="list-group-item" style="background-color:#f7f7f7">
+          <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
+          <a [routerLink]=""
+             (click)="submit()"
+             style="color: #5b5b5b;">Submit</a>
+          </div>
+          </div>
+        </li>
+      </ul>
     </div>
+
   </div>
-{{CalsIn}}
-  <button (click)="submit()" class="btn btn-success">Submit</button>
 </div>

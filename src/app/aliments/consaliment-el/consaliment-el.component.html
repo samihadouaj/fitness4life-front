@@ -1,22 +1,32 @@
 <a
   style="cursor: pointer;"
-  routerLinkActive="active"
-  class="list-group-item clearfix">
+  routerLinkActive="active">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ aliment.name }}</h4>
     <p class="list-group-item-text">{{(this.aliment.cals * this.quantity) / this.aliment.qty}} Kcal</p>
   </div>
   <span class="pull-right">
+
+        <div class="input-group mb-3">
+      <input type="text"
+             [(ngModel)] = "quantity"
+             id="qty" type="number"
+             disabled
+             style="width: 50px;background-color: white"
+             class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2" (click)="deleteAl()">-</span>
+      </div>
+      </div>
+    <!--
        <label for="qty">quantity</label>
        <input
                [(ngModel)] = "quantity"
                id="qty" type="number"
                style="width: 50px"
                disabled
-               >
+               >    -->
 <!--              [(ngModel)] = "quantity"-->
-
-           <button class ="btn btn-warning" (click)="deleteAl()">-</button>
 
       </span>
 

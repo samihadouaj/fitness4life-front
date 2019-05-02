@@ -1,8 +1,31 @@
 <div class="container-fluid">
-  <h2 style="color: #7b0f00">Your DONE/TODO workouts </h2>
+  <ul class="list-group">
+    <li class="list-group-item disabled" style="color:#545454; background-color:#eff0f2;">DONE/TODO workouts</li>
+    <li *ngFor="let al of WorkoutstoAddToDayAss; let i = index"
+          class="list-group-item">
+      <app-workout-todo
+        [workout]="al.wk"
+        [qty]="al.qty"
+        [index] = i
+      ></app-workout-todo>
+    <li class="list-group-item">
 
-  <hr>
-  <div class="row">
+      <h5 class="list-group-item-heading">Total</h5>
+      <p class="list-group-item-text">
+        {{CalsOut}} cal</p>
+    </li>
+    <li class="list-group-item" style="background-color:#f7f7f7">
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+          <a [routerLink]=""
+             (click)="submit()"
+             style="color: #5b5b5b;">Submit</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+<!--  <div class="row">
     <div class="col-md-10 col-offset-1">
       <app-workout-todo
         *ngFor="let al of WorkoutstoAddToDayAss; let i = index"
@@ -11,8 +34,6 @@
         [index] = i
       ></app-workout-todo>
     </div>
-  </div>
-  {{CalsOut}}
-  <button (click)="submit()" class="btn btn-success">Submit</button>
+  </div>-->
 </div>
 
